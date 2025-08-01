@@ -1,44 +1,11 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useDarkMode, useMobileMenu } from "../../../hooks";
 
 const Navbar = () => {
-  const [isDark, setIsDark] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  // Este useEffect detecta el modo oscuro al cargar y cuando cambia
-  useEffect(() => {
-    // Detectar modo oscuro inicial
-    const isDarkMode = document.documentElement.classList.contains("dark");
-    setIsDark(isDarkMode);
-
-    // Observar cambios en la clase 'dark' del elemento html
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.attributeName === "class") {
-          const isDarkMode = document.documentElement.classList.contains("dark");
-          setIsDark(isDarkMode);
-        }
-      });
-    });
-
-    observer.observe(document.documentElement, { attributes: true });
-
-    return () => observer.disconnect();
-  }, []);
-
-  const toggleDarkMode = () => {
-    const newDarkMode = !isDark;
-    setIsDark(newDarkMode);
-
-    if (newDarkMode) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  };
+  const { isDark, toggleDarkMode } = useDarkMode();
+  const { isMobileMenuOpen, toggleMobileMenu, handleLinkClick } = useMobileMenu();
 
   return (
     <>
@@ -167,7 +134,7 @@ const Navbar = () => {
                 Mejor estilo y feedback visual al hacer click
               */}
               <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                onClick={toggleMobileMenu}
                 className={`inline-flex items-center justify-center rounded-md p-2 md:hidden transition-colors
                   ${isDark ? "text-white hover:bg-slate-800" : "text-gray-900 hover:bg-gray-100"}`}
               >
@@ -210,6 +177,7 @@ const Navbar = () => {
             <div className="space-y-2 px-4 pb-4 pt-3">
               <a
                 href="#inicio"
+                onClick={handleLinkClick}
                 className={`block rounded-md px-3 py-2 text-base font-medium
                   ${isDark ? "text-white hover:bg-slate-800 hover:text-blue-400" : "text-gray-900 hover:bg-gray-100 hover:text-blue-600"}`}
               >
@@ -217,6 +185,7 @@ const Navbar = () => {
               </a>
               <a
                 href="#servicios"
+                onClick={handleLinkClick}
                 className={`block rounded-md px-3 py-2 text-base font-medium
                   ${isDark ? "text-white hover:bg-slate-800 hover:text-blue-400" : "text-gray-900 hover:bg-gray-100 hover:text-blue-600"}`}
               >
@@ -224,6 +193,7 @@ const Navbar = () => {
               </a>
               <a
                 href="#conocenos"
+                onClick={handleLinkClick}
                 className={`block rounded-md px-3 py-2 text-base font-medium
                   ${isDark ? "text-white hover:bg-slate-800 hover:text-blue-400" : "text-gray-900 hover:bg-gray-100 hover:text-blue-600"}`}
               >
@@ -231,6 +201,7 @@ const Navbar = () => {
               </a>
               <a
                 href="#contacto"
+                onClick={handleLinkClick}
                 className={`block rounded-md px-3 py-2 text-base font-medium
                   ${isDark ? "text-white hover:bg-slate-800 hover:text-blue-400" : "text-gray-900 hover:bg-gray-100 hover:text-blue-600"}`}
               >

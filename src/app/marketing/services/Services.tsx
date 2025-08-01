@@ -1,30 +1,10 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useDarkMode } from "../../../hooks/useDarkMode";
 
 const Services = () => {
-  const [isDark, setIsDark] = useState(false);
-
-  // Detectar y actualizar el modo oscuro
-  useEffect(() => {
-    // Detectar modo oscuro inicial
-    const isDarkMode = document.documentElement.classList.contains("dark");
-    setIsDark(isDarkMode);
-
-    // Observar cambios en la clase 'dark' del elemento html
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.attributeName === "class") {
-          const isDarkMode = document.documentElement.classList.contains("dark");
-          setIsDark(isDarkMode);
-        }
-      });
-    });
-
-    observer.observe(document.documentElement, { attributes: true });
-
-    return () => observer.disconnect();
-  }, []);
+  const { isDark } = useDarkMode();
 
   return (
     <section className={`py-20 ${isDark ? "bg-slate-800" : "bg-gray-50"}`}>
