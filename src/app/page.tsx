@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Navbar from "./marketing/navbar/Navbar";
 import Hero from "./marketing/hero/Hero";
 import Services from "./marketing/services/Services";
+import About from "./marketing/about/About";
 
 export const metadata: Metadata = {
   title: "ArriendaTuCamión - Arriendo de Camiones 3/4 en Santiago de Chile",
@@ -64,10 +65,13 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
+      <header>
+        <Navbar />
+      </header>
       <main>
         <Hero />
         <Services />
+        <About />
       </main>
     </div>
   );

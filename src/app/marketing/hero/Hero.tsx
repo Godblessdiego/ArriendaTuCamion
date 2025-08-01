@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { useDarkMode } from "../../../hooks/useDarkMode";
+import { useDarkMode } from "../../../hooks/index";
 
 const Hero = () => {
   const { isDark } = useDarkMode();

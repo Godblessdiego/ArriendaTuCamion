@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
  * Controla la apertura/cierre del menú y maneja efectos secundarios
  * como prevenir scroll del body cuando el menú está abierto
  */
-export const useMobileMenu = () => {
+const useMobileMenu = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Efecto para manejar el scroll del body cuando el menú está abierto
@@ -79,4 +79,4 @@ export const useMobileMenu = () => {
   };
 };
 
-export default useMobileMenu;
+export { useMobileMenu };

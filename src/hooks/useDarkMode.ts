@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
  * Detecta automáticamente el tema inicial y observa cambios
  * Proporciona función para alternar entre modo claro y oscuro
  */
-export const useDarkMode = () => {
+const useDarkMode = () => {
   const [isDark, setIsDark] = useState(false);
 
   // Detectar y actualizar el modo oscuro
@@ -56,4 +56,4 @@ export const useDarkMode = () => {
   };
 };
 
-export default useDarkMode;
+export { useDarkMode };

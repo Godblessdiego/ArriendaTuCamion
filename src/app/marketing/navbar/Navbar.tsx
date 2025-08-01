@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { useDarkMode, useMobileMenu } from "../../../hooks";
+import { useDarkMode, useMobileMenu } from "../../../hooks/index";
 
 const Navbar = () => {
   const { isDark, toggleDarkMode } = useDarkMode();

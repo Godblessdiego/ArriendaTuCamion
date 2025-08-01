@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
  * Detecta el tamaño de pantalla y actualiza automáticamente al redimensionar
  * Útil para componentes responsivos y lógica condicional móvil
  */
-export const useMobile = (breakpoint: number = 768) => {
+const useMobile = (breakpoint: number = 768) => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -72,4 +72,4 @@ export const useMobile = (breakpoint: number = 768) => {
   };
 };
 
-export default useMobile;
+export { useMobile };
