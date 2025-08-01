@@ -27,7 +27,7 @@ const Navbar = () => {
             <div className="flex-shrink-0 flex items-center">
               <div className="flex items-center space-x-3">
                 <Image
-                  src="/truck_logo.svg"
+                  src={isDark ? "/truck_logo_darkmode.svg" : "/truck_logo.svg"}
                   alt="ArriendaTuCamión Logo"
                   width={60}
                   height={60}
