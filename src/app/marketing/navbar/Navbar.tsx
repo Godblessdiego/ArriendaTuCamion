@@ -16,7 +16,7 @@ const Navbar = () => {
         Aplicamos clases condicionales basadas en el estado isDark
       */}
       <nav
-        className={`sticky top-0 z-50 shadow-md ${isDark ? "bg-slate-900" : "bg-white"}`}
+        className={`sticky top-0 z-50 shadow-md ${isDark ? "bg-slate-900" : "bg-slate-900"}`}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-20 items-center justify-between">
@@ -27,7 +27,7 @@ const Navbar = () => {
             <div className="flex-shrink-0 flex items-center">
               <div className="flex items-center space-x-3">
                 <Image
-                  src={isDark ? "/truck_logo_darkmode.svg" : "/truck_logo.svg"}
+                  src={isDark ? "/truck_logo.svg" : "/truck_logo.svg"}
                   alt="ArriendaTuCamión Logo"
                   width={60}
                   height={60}
