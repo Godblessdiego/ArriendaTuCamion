@@ -16,7 +16,7 @@ const Navbar = () => {
         Aplicamos clases condicionales basadas en el estado isDark
       */}
       <nav
-        className={`sticky top-0 z-50 shadow-md ${isDark ? "bg-slate-900" : "bg-slate-900"}`}
+        className={`sticky top-0 z-50 shadow-md ${isDark ? "bg-slate-900" : "bg-white"}`}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-20 items-center justify-between">
