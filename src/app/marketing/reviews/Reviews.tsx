@@ -111,7 +111,7 @@ const Reviews = () => {
         className={`h-full rounded-xl shadow-lg border-2 transition-all duration-300 hover:shadow-xl ${
           isDark
             ? "bg-slate-800 border-blue-500/20 hover:border-blue-500/40"
-            : "bg-white border-blue-500/20 hover:border-blue-500/40"
+            : "bg-card border-blue-500/20 hover:border-blue-500/40"
         }`}
       >
         <div className="p-6 h-full flex flex-col">
@@ -139,7 +139,7 @@ const Reviews = () => {
   return (
     <section
       id="testimonios"
-      className={`py-20 ${isDark ? "bg-slate-900" : "bg-card"}`}
+      className={`py-20 ${isDark ? "bg-slate-900" : "bg-white"}`}
       onMouseEnter={pauseAutoPlay}
       onMouseLeave={resumeAutoPlay}
     >

@@ -7,7 +7,7 @@ const Services = () => {
   const { isDark } = useDarkMode();
 
   return (
-    <section className={`py-20 ${isDark ? "bg-slate-800" : "bg-gray-50"}`}>
+    <section className={`py-20 ${isDark ? "bg-slate-900" : "bg-white"}`}>
       <div className="container mx-auto px-6">
         {/*
           Título de la sección

@@ -372,7 +372,7 @@ const Contact = () => {
   return (
     <section
       id="contactanos"
-      className={`py-20 ${isDark ? "bg-slate-900" : "bg-card"}`}
+      className={`py-20 ${isDark ? "bg-slate-900" : "bg-white"}`}
     >
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto">

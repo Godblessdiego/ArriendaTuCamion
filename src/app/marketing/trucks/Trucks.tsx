@@ -9,7 +9,7 @@ const Trucks = () => {
 
   return (
     /* Nuestros Camiones Section */
-    <section className={`py-20 ${isDark ? "bg-slate-900" : "bg-card"}`} id="camiones">
+    <section className={`py-20 ${isDark ? "bg-slate-900" : "bg-white"}`} id="camiones">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2

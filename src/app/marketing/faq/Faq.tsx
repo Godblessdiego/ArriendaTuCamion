@@ -33,7 +33,7 @@ const Faq = () => {
   };
 
   return (
-    <section className={`py-20 ${isDark ? "bg-slate-900" : "bg-card"}`}>
+    <section className={`py-20 ${isDark ? "bg-slate-900" : "bg-white"}`}>
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-16">
