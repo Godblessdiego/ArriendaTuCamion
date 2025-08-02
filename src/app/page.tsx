@@ -6,6 +6,7 @@ import About from "./marketing/about/About";
 import Trucks from "./marketing/trucks/Trucks";
 import Contact from "./marketing/contact/Contact";
 import Reviews from "./marketing/reviews/Reviews";
+import Faq from "./marketing/faq";
 
 export const metadata: Metadata = {
   title: "ArriendaTuCamión - Arriendo de Camiones 3/4 en Santiago de Chile",
@@ -78,6 +79,7 @@ export default function Home() {
         <Trucks />
         <Reviews />
         <Contact />
+        <Faq />
       </main>
     </div>
   );
