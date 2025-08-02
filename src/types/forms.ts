@@ -32,3 +32,31 @@ export type ContactFormFiles = {
 
 // Document types
 export type DocumentType = "licenciaConducir" | "carnetFrontal" | "carnetTrasero";
+
+// Review types
+export interface Review {
+  id: number;
+  name: string;
+  role: string;
+  comment: string;
+  rating: number;
+  createdAt: string;
+}
+
+// Add review form data
+export interface AddReviewFormData {
+  name: string;
+  role: string;
+  comment: string;
+  rating: number;
+  email: string;
+}
+
+// Form errors for review form
+export interface ReviewFormErrors {
+  name?: string;
+  role?: string;
+  comment?: string;
+  rating?: string;
+  email?: string;
+}

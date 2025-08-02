@@ -102,9 +102,9 @@ const Contact = () => {
       }
     }
 
-    // Solo verificar archivos si no es consulta general
-    const isConsulta = form.tipoServicio.value === "consulta";
-    if (!isConsulta) {
+    // Solo verificar archivos si el usuario va a conducir
+    const requiereDocumentos = form.tipoServicio.value === "sin-chofer";
+    if (requiereDocumentos) {
       if (!files.licenciaConducir || !files.carnetFrontal || !files.carnetTrasero) {
         return false;
       }
@@ -187,9 +187,9 @@ const Contact = () => {
 
     setForm(updatedForm);
 
-    // Solo verificar archivos si no es consulta general
-    const isConsulta = form.tipoServicio.value === "consulta";
-    if (!isConsulta) {
+    // Solo verificar archivos si el usuario va a conducir
+    const requiereDocumentos = form.tipoServicio.value === "sin-chofer";
+    if (requiereDocumentos) {
       if (!files.licenciaConducir || files.licenciaConducir.error) formIsValid = false;
       if (!files.carnetFrontal || files.carnetFrontal.error) formIsValid = false;
       if (!files.carnetTrasero || files.carnetTrasero.error) formIsValid = false;
@@ -600,7 +600,7 @@ const Contact = () => {
                     className={`p-4 rounded-lg ${isDark ? "bg-blue-900/20" : "bg-blue-50"}`}
                     style={{
                       display:
-                        form.tipoServicio.value === "consulta" ? "none" : "block",
+                        form.tipoServicio.value === "sin-chofer" ? "block" : "none",
                     }}
                   >
                     <h3
