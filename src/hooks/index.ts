@@ -9,6 +9,7 @@ export { useMobile } from "./useMobile";
 export { useMobileMenu } from "./useMobileMenu";
 export { useReviews } from "./useReviews";
 export { useCarousel } from "./useCarousel";
+export { useContactNavigation } from "./useContactNavigation";
 
 // Exportaciones por defecto como alias (opcional)
 // Estas líneas están comentadas para evitar duplicaciones

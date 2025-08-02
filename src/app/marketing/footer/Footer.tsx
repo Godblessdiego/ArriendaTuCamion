@@ -21,7 +21,7 @@ const Footer = () => {
               Líder en arriendo de camiones en Chile. Soluciones de transporte
               confiables y flexibles para empresas y particulares.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 mt-8">
               <a
                 href="#"
                 className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${

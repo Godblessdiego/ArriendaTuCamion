@@ -1,10 +1,11 @@
 "use client";
 
 import React from "react";
-import { useDarkMode } from "../../../hooks/index";
+import { useDarkMode, useContactNavigation } from "../../../hooks/index";
 
 const Hero = () => {
   const { isDark } = useDarkMode();
+  const { navigateToContact } = useContactNavigation();
 
   return (
     <div
@@ -182,6 +183,7 @@ const Hero = () => {
             Botón de llamada a la acción con gradiente y efectos al pasar el ratón
           */}
           <button
+            onClick={navigateToContact}
             className={`hover:opacity-90 text-white px-12 py-6 text-xl rounded-full font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-in ${
               isDark
                 ? "bg-slate-700 shadow-slate-800"

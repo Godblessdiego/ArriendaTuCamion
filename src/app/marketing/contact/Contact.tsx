@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, useCallback } from "react";
+import React, { useState, useRef, useCallback, useEffect } from "react";
 import { useDarkMode } from "../../../hooks/index";
 import {
   FormField,
@@ -33,6 +33,69 @@ const Contact = () => {
     carnetFrontal: null,
     carnetTrasero: null,
   });
+
+  // Función para pre-llenar el formulario
+  const prefillForm = useCallback((data: any) => {
+    if (data.serviceType) {
+      setForm((prev) => ({
+        ...prev,
+        tipoServicio: {
+          ...prev.tipoServicio,
+          value: data.serviceType,
+          touched: true,
+        },
+      }));
+    }
+    if (data.duration) {
+      setForm((prev) => ({
+        ...prev,
+        duracion: {
+          ...prev.duracion,
+          value: data.duration,
+          touched: true,
+        },
+      }));
+    }
+    if (data.message) {
+      setForm((prev) => ({
+        ...prev,
+        mensaje: {
+          ...prev.mensaje,
+          value: data.message,
+          touched: true,
+        },
+      }));
+    }
+  }, []);
+
+  // Escuchar eventos de navegación y datos en localStorage
+  useEffect(() => {
+    // Verificar datos en localStorage al montar
+    const savedData = localStorage.getItem("contactFormData");
+    if (savedData) {
+      try {
+        const parsedData = JSON.parse(savedData);
+        prefillForm(parsedData);
+        localStorage.removeItem("contactFormData"); // Limpiar después de usar
+      } catch (error) {
+        console.warn("Error parsing contact form data:", error);
+      }
+    }
+
+    // Escuchar eventos personalizados
+    const handleUpdateForm = (event: CustomEvent) => {
+      prefillForm(event.detail);
+    };
+
+    window.addEventListener("updateContactForm", handleUpdateForm as EventListener);
+
+    return () => {
+      window.removeEventListener(
+        "updateContactForm",
+        handleUpdateForm as EventListener,
+      );
+    };
+  }, [prefillForm]);
 
   // Función de validación
   const validateField = (name: keyof ContactFormState, value: string): string => {

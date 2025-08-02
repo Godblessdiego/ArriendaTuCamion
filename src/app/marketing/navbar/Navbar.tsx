@@ -1,12 +1,13 @@
 "use client";
 
 import React from "react";
-import { useDarkMode, useMobileMenu } from "../../../hooks/index";
+import { useDarkMode, useMobileMenu, useContactNavigation } from "../../../hooks/index";
 import Image from "next/image";
 
 const Navbar = () => {
   const { isDark, toggleDarkMode } = useDarkMode();
   const { isMobileMenuOpen, toggleMobileMenu, handleLinkClick } = useMobileMenu();
+  const { navigateToContact } = useContactNavigation();
 
   return (
     <>
@@ -69,7 +70,7 @@ const Navbar = () => {
                   Conócenos
                 </a>
                 <a
-                  href="#contacto"
+                  href="#contactanos"
                   className={`rounded-md px-4 py-2 text-base font-medium transition-all duration-200
                     ${isDark ? "text-white hover:bg-slate-800 hover:text-blue-400" : "text-gray-900 hover:bg-gray-100 hover:text-blue-600"}`}
                 >
@@ -121,6 +122,7 @@ const Navbar = () => {
                 Colores de la marca, sombra y margen superior
               */}
               <button
+                onClick={navigateToContact}
                 className={`hidden md:inline-flex items-center rounded-full mt-1 px-6 py-2.5 text-base font-medium text-white hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-md
                 ${isDark ? "bg-slate-700" : "bg-gradient-to-r from-blue-600 to-blue-500"}`}
               >
@@ -198,7 +200,7 @@ const Navbar = () => {
                 Conócenos
               </a>
               <a
-                href="#contacto"
+                href="#contactanos"
                 onClick={handleLinkClick}
                 className={`block rounded-md px-3 py-2 text-base font-medium
                   ${isDark ? "text-white hover:bg-slate-800 hover:text-blue-400" : "text-gray-900 hover:bg-gray-100 hover:text-blue-600"}`}
@@ -207,6 +209,7 @@ const Navbar = () => {
               </a>
               <div className="mt-6 px-3">
                 <button
+                  onClick={navigateToContact}
                   className={`w-full rounded-full px-6 py-3 text-base font-medium text-white hover:opacity-90 shadow-md transition-all duration-300
                   ${isDark ? "bg-slate-700" : "bg-gradient-to-r from-blue-600 to-blue-500"}`}
                 >

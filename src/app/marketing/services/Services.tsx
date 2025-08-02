@@ -1,10 +1,12 @@
 "use client";
 
 import React from "react";
-import { useDarkMode } from "../../../hooks/index";
+import { useDarkMode, useContactNavigation } from "../../../hooks/index";
 
 const Services = () => {
   const { isDark } = useDarkMode();
+  const { navigateToContactWithChofer, navigateToContactSinChofer } =
+    useContactNavigation();
 
   return (
     <section className={`py-20 ${isDark ? "bg-slate-900" : "bg-white"}`}>
@@ -129,6 +131,7 @@ const Services = () => {
 
             {/* Botón CTA */}
             <button
+              onClick={navigateToContactWithChofer}
               className={`w-full py-3 px-6 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${
                 isDark
                   ? "bg-slate-700 text-white hover:bg-slate-600"
@@ -239,6 +242,7 @@ const Services = () => {
 
             {/* Botón CTA */}
             <button
+              onClick={navigateToContactSinChofer}
               className={`w-full py-3 px-6 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${
                 isDark
                   ? "bg-slate-700 text-white hover:bg-slate-600"

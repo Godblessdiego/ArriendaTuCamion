@@ -2,10 +2,11 @@
 
 import React from "react";
 import Image from "next/image";
-import { useDarkMode } from "../../../hooks/index";
+import { useDarkMode, useContactNavigation } from "../../../hooks/index";
 
 const Trucks = () => {
   const { isDark } = useDarkMode();
+  const { scrollToContact } = useContactNavigation();
 
   return (
     /* Nuestros Camiones Section */
@@ -109,6 +110,12 @@ const Trucks = () => {
                 </div>
               </div>
               <button
+                onClick={() =>
+                  scrollToContact({
+                    message:
+                      "Estoy interesado en arrendar el Chevrolet NPR 816. Me gustaría conocer más detalles sobre disponibilidad y precios.",
+                  })
+                }
                 className={`w-full py-2 px-4 text-white font-medium rounded-md transition-colors duration-300 ${
                   isDark
                     ? "bg-blue-600 hover:bg-blue-500"
@@ -200,6 +207,12 @@ const Trucks = () => {
                 </div>
               </div>
               <button
+                onClick={() =>
+                  scrollToContact({
+                    message:
+                      "Estoy interesado en arrendar el Chevrolet NPR 715. Me gustaría conocer más detalles sobre disponibilidad y precios.",
+                  })
+                }
                 className={`w-full py-2 px-4 text-white font-medium rounded-md transition-colors duration-300 ${
                   isDark
                     ? "bg-amber-600 hover:bg-amber-500"
